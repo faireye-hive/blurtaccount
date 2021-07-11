@@ -52,10 +52,11 @@ function Enviar() {
     document.getElementById("pubkeys").innerHTML = 'Account Name:' +newaccountname  + '<br>Owner: ' + pub_ownerkey + '<br> Active: ' + pub_activekey+ '<br> Posting: ' + pub_postingkey+ '<br> Memo: ' + pub_memokey;
 
     if (newaccountname != "") {
+	blurt.api.setOptions({ url: 'https://api.blurt.blog' ,useAppbaseApi: true});
 	blurt.broadcast.accountCreate(wifkey, '10.000 BLURT', creator, newaccountname,
-	 {weight_threshold: 1,account_auths: [],key_auths: [[pub_ownerkey,1]]},
-	 {weight_threshold: 1,account_auths: [],key_auths: [[pub_activekey,1]]},
-	 {weight_threshold: 1,account_auths: [],key_auths: [[pub_postingkey,1]]},
+	 {"weight_threshold": 1,"account_auths": [],"key_auths": [[pub_ownerkey,1]]},
+	 {"weight_threshold": 1,"account_auths": [],"key_auths": [[pub_activekey,1]]},
+	 {"weight_threshold": 1,"account_auths": [],"key_auths": [[pub_postingkey,1]]},
 	 pub_memokey,
 	 "{}", function(err, result) {
 	  console.log(err, result);
