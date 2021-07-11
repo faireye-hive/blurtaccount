@@ -81,10 +81,10 @@ function importFile() {
       var fileContent = JSON.parse(reader.result);
       console.log(fileContent.keys.owner);
 	document.getElementById("newaccountname").value = fileContent.account;
-	document.getElementById("pubownerkey").value = fileContent.keys.owner;
-	document.getElementById("pubactivekey").value = fileContent.keys.active;
-	document.getElementById("pubpostingkey").value = fileContent.keys.posting;
-	document.getElementById("pubmemokey").value = fileContent.keys.memo;
+	document.getElementById("pubownerkey").value = fileContent.keys.owner.replace('STM', 'BLT');
+	document.getElementById("pubactivekey").value = fileContent.keys.active.replace('STM', 'BLT');
+	document.getElementById("pubpostingkey").value = fileContent.keys.posting.replace('STM', 'BLT');
+	document.getElementById("pubmemokey").value = fileContent.keys.memo.replace('STM', 'BLT');
       // Do something with fileContent
       // document.getElementById('json-file').innerHTML = fileContent;  
     };
